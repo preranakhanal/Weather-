@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #74ebd5 0%, #acb6e5 100%);
+  min-height: 100vh;
+}
+
+.app{
+  width:100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.App {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+  padding: 32px 40px 40px 40px;
+}
+
+.card{
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  padding: 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+
+}
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #74ebd5;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f7fafd;
+}
+
+input[type="text"]:focus {
+  border-color: #58cdd1;
+}
+
+button {
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #74ebd5 60%, #acb6e5 100%);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 12px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #58cdd1 60%, #74ebd5 100%);
+}
+
+.weather-info {
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.weather-info h2 {
+  margin-top: 0;
+}
+
+.weather-result {
+  background: #f7fafd;
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin: 32px 0 24px 0;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  text-align: center;
+}
+
+.weather-result h2 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.weather-result p {
+  margin: 6px 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.week-forecast {
+  display: flex;
+  gap: 18px;
+  margin: 0 0 32px 0;
+  justify-content: center;
+}
+
+.forecast-card {
+  background: #f7fafd;
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  min-width: 80px;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+  transition: transform 0.15s;
+}
+
+.forecast-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+}
+
+.forecast-card div:first-child {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.forecast-card span {
+  font-weight: 500;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.highlight-card {
+  background: #f7fafd;
+  border-radius: 16px;
+  padding: 28px 18px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  text-align: center;
+  transition: box-shadow 0.15s;
+}
+
+.highlight-card:hover {
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+}
+
+.highlight-card h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.highlight-value {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: #222;
+}
+
+.big {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #222;
+}
+
+@media (max-width: 900px) {
+  .App {
+    padding: 18px 6vw;
+  }
+  .highlights-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .App {
+    padding: 8px 2vw;
+  }
+  .week-forecast {
+    gap: 8px;
+  }
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
