@@ -27,10 +27,15 @@ function App() {
         alert("City not found");
       }
     } catch (error) {
-      console.error("Error fetching weather data:", error);
-      setWeather(null);
+     setWeather(null);
+    if (error.response && error.response.status === 404) {
+      alert("City not found. Please check the spelling or try another city.");
+    } else {
+      alert("An error occurred. Please try again later.");
     }
-  };
+    console.error("Error fetching weather data:", error);
+  }
+};
 
   return (
     <div className="App">
@@ -179,6 +184,21 @@ function App() {
               </div>
             </div>
           </div>
+
+          {weather.coord && (
+        <div style={{ margin: "32px 0px", display: "flex", justifyContent: "center" }}>
+          <iframe
+            title="map"
+            width="90%"
+            height="300"
+            style={{ border: 0, borderRadius: "12px" }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src={`https://www.openstreetmap.org/export/embed.html?bbox=${weather.coord.lon-0.1}%2C${weather.coord.lat-0.1}%2C${weather.coord.lon+0.1}%2C${weather.coord.lat+0.1}&layer=mapnik&marker=${weather.coord.lat}%2C${weather.coord.lon}`}
+          ></iframe>
+        </div>
+)}
         </div>
       )}
     </div>
