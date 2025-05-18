@@ -101,25 +101,7 @@ function App() {
           </div>
 
           {/* Week Forecast - static */}
-          <div className="week-forecast">
-            {[
-              { day: "Sun", icon: "☀️", max: 15, min: 3 },
-              { day: "Mon", icon: "🌦️", max: 12, min: 7 },
-              { day: "Tue", icon: "🌫️", max: 9, min: 7 },
-              { day: "Wed", icon: "🌧️", max: 8, min: 1 },
-              { day: "Thu", icon: "❄️", max: 5, min: 2 },
-              { day: "Fri", icon: "☀️", max: 4, min: 0 },
-              { day: "Sat", icon: "☀️", max: 3, min: 3 },
-            ].map((d) => (
-              <div className="forecast-card" key={d.day}>
-                <div>{d.day}</div>
-                <div style={{ fontSize: "2rem" }}>{d.icon}</div>
-                <div>
-                  <span>{d.max}°</span> <span style={{ color: "#888" }}>{d.min}°</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          
 
           {/* Highlights */}
           <h3 style={{ marginTop: 32 }}>Today's Highlights</h3>
