@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
 import axios from "axios";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -7,8 +7,12 @@ import { WiCloud, WiDaySunny, WiRain, WiSnow, WiThunderstorm, WiFog, WiThermomet
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [theme, setTheme] = useState("light");
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-
+  
+   useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const handleSearch = async () => {
     if (!city) return;
@@ -39,19 +43,58 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSearch();}
-          }}
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+  <input
+    type="text"
+    placeholder="Enter city name"
+    value={city}
+    onChange={(e) => setCity(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        handleSearch();
+      }
+    }}
+    style={{ padding: "10px", borderRadius: "8px", border: "1px solid #ccc" }}
+  />
+  <button onClick={handleSearch} style={{ padding: "10px 17px", borderRadius: "8px", backgroundColor: "#74ebd5", color: "#fff", border: "none", cursor: "pointer" }}>
+    Search
+  </button>
+  {/* Toggle Switch */}
+  <label style={{ display: "flex", alignItems: "center", cursor: "pointer", userSelect: "none" }}>
+    <input
+      type="checkbox"
+      checked={theme === "dark"}
+      onChange={() => setTheme(theme === "light" ? "dark" : "light")}
+      style={{ display: "none" }}
+    />
+    <span
+      style={{
+        width: 44,
+        height: 24,
+        background: theme === "dark" ? "#2c3e50" : "#ccc",
+        borderRadius: 24,
+        position: "relative",
+        display: "inline-block",
+        marginRight: 8,
+        transition: "background 0.3s"
+      }}
+    >
+      <span
+        style={{
+          position: "absolute",
+          left: theme === "dark" ? 22 : 2,
+          top: 2,
+          width: 20,
+          height: 20,
+          background: "#fff",
+          borderRadius: "50%",
+          transition: "left 0.3s"
+        }}
       />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+    </span>
+    {theme === "light" ? "🌙" : "☀️"}
+  </label>
+</div>
       {weather && weather.sys && (
         <div>
           <div className="weather-result">

@@ -1,3 +1,21 @@
+/* App.css */
+body.light {
+  --bg: #f5f7fa;
+  --text: #222;
+}
+
+body.dark {
+  --bg: #181c25;
+  --text: #f5f7fa;
+}
+
+.App {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -15,14 +33,16 @@ body {
 .App {
   max-width: 900px;
   margin: 40px auto;
-  background: #fff;
+  background: var(--bg);      /* Use variable */
+  color: var(--text);         /* Use variable */
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
   padding: 32px 40px 40px 40px;
 }
 
-.card{
-  background-color: white;
+.card {
+  background-color: var(--bg); /* Use variable */
+  color: var(--text);          /* Use variable */
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   padding: 30px;
@@ -84,25 +104,26 @@ button:hover {
 }
 
 .weather-result {
-  background: #f7fafd;
+  background: var(--bg);
   border-radius: 16px;
   padding: 24px 32px;
   margin: 32px 0 24px 0;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
   text-align: center;
+  color: var(--text);
 }
 
 .weather-result h2 {
   margin: 0 0 12px 0;
   font-size: 2rem;
   font-weight: 600;
-  color: #222;
+  color: var(--text); 
 }
 
 .weather-result p {
   margin: 6px 0;
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text);
 }
 
 .week-forecast {
@@ -130,7 +151,7 @@ button:hover {
 .forecast-card div:first-child {
   font-weight: 600;
   margin-bottom: 6px;
-  color: #222;
+  color: var(--text); /* changed */
 }
 
 .forecast-card span {
@@ -145,11 +166,12 @@ button:hover {
 }
 
 .highlight-card {
-  background: #f7fafd;
+  background: var(--bg);
   border-radius: 16px;
   padding: 28px 18px;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
   text-align: center;
+  color: var(--text);
   transition: box-shadow 0.15s;
 }
 
@@ -161,19 +183,19 @@ button:hover {
   margin: 0 0 12px 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text); /* changed */
 }
 
 .highlight-value {
   font-size: 1.3rem;
   margin-top: 10px;
-  color: #222;
+  color: var(--text); /* changed */
 }
 
 .big {
   font-size: 2.3rem;
   font-weight: bold;
-  color: #222;
+  color: var(--text); /* changed */
 }
 
 @media (max-width: 900px) {
